@@ -1,6 +1,7 @@
 package ooad;
 
 import database.SqlConnection;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -9,6 +10,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -43,6 +46,9 @@ public class AddComplaintController implements Initializable{
     @FXML
     private Button login;
 
+    @FXML
+    private ChoiceBox categorie;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 //        printList.setOnAction(event -> {
@@ -57,18 +63,26 @@ public class AddComplaintController implements Initializable{
 //
 //            complaintList = getComplaintsList(true);
 //        });
+
+        categorie.setItems(FXCollections.observableArrayList(
+                "Struktureel", "Afwerking ", "Water", "Overig")
+        );
     }
     @FXML
     public void addComplaint() throws SQLException {
 
-        Complaint c = new Complaint(nameField.getText(), descriptionField.getText());
+        Complaint c = new Complaint(nameField.getText(), descriptionField.getText(), categorie.getValue());
 
         if(complaintList.isEmpty()){
             getComplaintsList(false);
         }
 
         complaintList.add(c);
+        for(Complaint co : complaintList){
+            co.serialize();
+        }
 
+        complaintList = getComplaintsList(true);
     }
 
     public List<Complaint> getComplaintsList(boolean force){

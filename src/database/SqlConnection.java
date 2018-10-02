@@ -56,20 +56,20 @@ public class SqlConnection {
         System.out.println("Connection Established!\n");
     }
 
-    public void InsertComplaint(String name, String description) throws SQLException {
+    public void InsertComplaint(String name, String description, String categorie) throws SQLException {
         stmt = conn.createStatement();
 
-        String sql = "INSERT INTO klachten (name, description) "
-                + "VALUES ('" + name + "','" + description + "')";
+        String sql = "INSERT INTO klachten (name, description, categorie) "
+                + "VALUES ('" + name + "','" + description + "','" + categorie + "')";
         stmt.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
         rs = stmt.getGeneratedKeys();
         System.out.println("Complaint inserted!");
     }
 
-    public void UpdateComplaint(int id, String name, String description) throws SQLException {
+    public void UpdateComplaint(int id, String name, String description, String categorie) throws SQLException {
         stmt = conn.createStatement();
 
-        String sql = "UPDATE klachten SET name = '"+ name +"', description = '" + description + "' WHERE id = "+id;
+        String sql = "UPDATE klachten SET name = '"+ name +"', description = '" + description + "', categorie = '" + categorie + "' WHERE id = "+id;
         stmt.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
         rs = stmt.getGeneratedKeys();
         System.out.println("Complaint updated!");

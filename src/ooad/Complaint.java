@@ -14,11 +14,13 @@ public class Complaint {
     private Status status;
     private Image[] images;
     private String assignee;
+    private String categorie;
 
-    public Complaint(String title, String description){
+    public Complaint(String title, String description, Object categorie){
         this.title = title;
         this.description = description;
         this.status = Status.NEW;
+        this.categorie = categorie.toString();
     }
 
     public Complaint(int id, String title, String description, Image[] images, Status status, String assignee){
@@ -39,9 +41,9 @@ public class Complaint {
 
         try {
             if(id == 0) {
-                SqlConnection.getInstance().InsertComplaint(title, description);
+                SqlConnection.getInstance().InsertComplaint(title, description, categorie);
             }else{
-                SqlConnection.getInstance().UpdateComplaint(id, title, description);
+                SqlConnection.getInstance().UpdateComplaint(id, title, description, categorie);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -50,6 +52,6 @@ public class Complaint {
 
     @Override
     public String toString(){
-        return "Id: "+id+" title: "+ title + " desc: "+description;
+        return "Id: "+id+" title: "+ title + " desc: "+description + " categorie: "+categorie;
     }
 }
