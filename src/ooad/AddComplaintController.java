@@ -26,7 +26,7 @@ public class AddComplaintController implements Initializable{
     List<Complaint> complaintList = new ArrayList<Complaint>();
 
     @FXML
-    AnchorPane pane;
+    public AnchorPane pane;
 
     @FXML
     private TextField nameField;
@@ -39,6 +39,9 @@ public class AddComplaintController implements Initializable{
 
     @FXML
     private Button serialize;
+
+    @FXML
+    private Button login;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

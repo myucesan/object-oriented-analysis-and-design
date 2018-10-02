@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="342.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ooad.AddComplaintController">
+<AnchorPane fx:id="pane" prefHeight="342.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ooad.AddComplaintController">
    <children>
         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Klachtadministratie" />
         <Button layoutX="118.0" layoutY="145.0" mnemonicParsing="false" onMouseClicked="#addComplaint" text="Klacht toevoegen" />
@@ -14,7 +13,7 @@
         <Text layoutX="259.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Administrators" wrappingWidth="111.85107421875" />
       <Text layoutX="9.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
       <TextField fx:id="descriptionField" layoutX="97.0" layoutY="91.0" />
-      <Button layoutX="285.0" layoutY="78.0" mnemonicParsing="false" onMouseClicked="#openComplaintView" text="Login" />
+      <Button layoutX="285.0" layoutY="78.0" mnemonicParsing="false" onAction="#openComplaintView" onMouseClicked="#openComplaintView" text="Login" />
       <Text layoutX="25.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" wrappingWidth="38.86328125" />
    </children>
 </AnchorPane>
