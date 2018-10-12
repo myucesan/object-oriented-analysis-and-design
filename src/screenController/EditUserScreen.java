@@ -7,6 +7,8 @@ public class EditUserScreen extends BaseScreen {
     }
 
     public void createUser() {
+        // Collect data from UI
+
 
     }
 }

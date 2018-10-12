@@ -6,6 +6,10 @@ public class Database {
 
     private DatabaseLanguage currentLanguage;
 
+    public Database(DatabaseLanguage currentLanguage) {
+        this.currentLanguage = currentLanguage;
+    }
+
     public void select(String table, List<Column> columns, List<Join>joins, String where){
         currentLanguage.select(table, columns, joins, where);
     }

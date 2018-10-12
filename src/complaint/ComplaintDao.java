@@ -1,4 +1,6 @@
 package complaint;
 
-public class ComplaintDao {
+import common.dao;
+
+public class ComplaintDao implements dao {
 }

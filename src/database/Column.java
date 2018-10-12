@@ -9,4 +9,8 @@ public class Column {
         this.name = name;
         this.value = value;
     }
+
+    public Column(String name) {
+        this(name, null);
+    }
 }

@@ -1,15 +1,17 @@
+import database.Database;
+import database.DatabaseLanguage;
+import database.SQL;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import screenController.ScreenController;
+import user.UserRepository;
 
 public class Main extends Application {
 
-    public static ScreenController screenController;
+    private static ScreenController screenController;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -32,5 +34,12 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
+
+        DatabaseLanguage dbLang = new SQL("root", "fys-resort5", "185.177.59.153:3306/ooad");
+        Database database = new Database(dbLang);
+
+        UserRepository userRep = new UserRepository(database);
+
+
     }
 }
