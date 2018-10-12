@@ -15,7 +15,7 @@ public class SQL implements DatabaseLanguage{
     public SQL(String dbName, String dbPass, String dbHost){
         this.dbName = dbName;
         this.dbPass = dbPass;
-        this.dbHost = dbHost;
+        this.dbHost = "jdbc:mysql://" + dbHost;
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -40,13 +40,14 @@ public class SQL implements DatabaseLanguage{
         StringBuilder sql = new StringBuilder("SELECT ");
         String sep = "";
         for (Column c : columns) {
-            sql.append(sep).append("'").append(c.name).append("'");
+            sql.append(sep).append("`").append(c.name).append("`");
             sep = ", ";
         }
         sql.append(" FROM `").append(table).append("`");
 
         try {
             Statement stmt = conn.createStatement();
+            System.out.println(sql.toString());
             ResultSet rs = stmt.executeQuery(sql.toString());
 
             while (rs.next()) {

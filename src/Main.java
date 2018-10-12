@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import screenController.ScreenController;
+import user.User;
 import user.UserRepository;
 
 public class Main extends Application {
@@ -14,12 +15,8 @@ public class Main extends Application {
     private static ScreenController screenController;
 
     public static void main(String[] args) {
+
         launch(args);
-
-        DatabaseLanguage dbLang = new SQL("root", "fys-resort5", "185.177.59.153:3306/ooad");
-        Database database = new Database(dbLang);
-
-        screenController.userRepository = new UserRepository(database);
     }
 
     @Override
@@ -38,5 +35,13 @@ public class Main extends Application {
 //        screenController.addScreen("viewUsers", FXMLLoader.load(getClass().getResource( "screens/viewUsers.fxml" )));
 //        screenController.addScreen("addUser", FXMLLoader.load(getClass().getResource( "screens/addUser.fxml" )));
         screenController.activate("login");
+
+        DatabaseLanguage dbLang = new SQL("root", "fys-resort5", "185.177.59.153:3306/ooad");
+        Database database = new Database(dbLang);
+
+        screenController.userRepository = new UserRepository(database);
+        for (User user : screenController.userRepository.getUsers()) {
+            System.out.println(user.isAdmin());
+        }
     }
 }
