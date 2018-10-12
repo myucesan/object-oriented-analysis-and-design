@@ -1,9 +1,7 @@
 package database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SQL implements DatabaseLanguage{
@@ -34,8 +32,37 @@ public class SQL implements DatabaseLanguage{
     }
 
     @Override
-    public void select(String table, List<Column> columns, List<Join>joins, String where) {
+    //TODO: add joins and where
+    //TODO: Test, works only in theory
+    public List<List<Column>> select(String table, List<Column> columns, List<Join> joins, String where) {
+        List<List<Column>> result = new ArrayList<>();
 
+        StringBuilder sql = new StringBuilder("SELECT ");
+        String sep = "";
+        for (Column c : columns) {
+            sql.append(sep).append("'").append(c.name).append("'");
+            sep = ", ";
+        }
+        sql.append(" FROM `").append(table).append("`");
+
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql.toString());
+
+            while (rs.next()) {
+                List<Column> row = new ArrayList<>();
+                for (Column c : columns) {
+                    row.add(new Column(c.name, rs.getString(c.name)));
+                }
+                result.add(row);
+            }
+
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
     }
 
     @Override

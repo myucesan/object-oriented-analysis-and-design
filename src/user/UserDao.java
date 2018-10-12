@@ -19,9 +19,24 @@ public class UserDao implements dao {
         List<Column> columns = new ArrayList<Column>();
 
         columns.add(new Column("id"));
+        columns.add(new Column("name"));
+        columns.add(new Column("password"));
+        columns.add(new Column("isAdmin"));
 
 
-        database.select("users", columns, null, null);
-        return null;
+        List<List<Column>> result = database.select("users", columns, null, null);
+
+        List<User> userList = new ArrayList<>();
+        for (List<Column> lc : result) {
+            User user = new User(
+                    Integer.parseInt(lc.get(0).value),
+                    lc.get(1).value,
+                    lc.get(2).value,
+                    lc.get(3).value.equals("1")
+            );
+            userList.add(user);
+        }
+
+        return userList;
     }
 }

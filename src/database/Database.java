@@ -10,8 +10,8 @@ public class Database {
         this.currentLanguage = currentLanguage;
     }
 
-    public void select(String table, List<Column> columns, List<Join>joins, String where){
-        currentLanguage.select(table, columns, joins, where);
+    public List<List<Column>> select(String table, List<Column> columns, List<Join> joins, String where) {
+        return currentLanguage.select(table, columns, joins, where);
     }
 
     public void update(String table, List<Column> columns, String where){

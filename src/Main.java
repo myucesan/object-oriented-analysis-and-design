@@ -13,6 +13,15 @@ public class Main extends Application {
 
     private static ScreenController screenController;
 
+    public static void main(String[] args) {
+        launch(args);
+
+        DatabaseLanguage dbLang = new SQL("root", "fys-resort5", "185.177.59.153:3306/ooad");
+        Database database = new Database(dbLang);
+
+        screenController.userRepository = new UserRepository(database);
+    }
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Pane root = FXMLLoader.load(getClass().getResource( "screens/login.fxml" ));
@@ -25,21 +34,9 @@ public class Main extends Application {
         screenController.addScreen("login", root);
 //        screenController.addScreen("register", FXMLLoader.load(getClass().getResource( "screens/register.fxml" )));
         screenController.addScreen("viewComplaints", FXMLLoader.load(getClass().getResource( "screens/viewComplaints.fxml" )));
-//        screenController.addScreen("addComplaint", FXMLLoader.load(getClass().getResource( "screens/addComplaints.fxml" )));
+//        screenController.addScreen("editComplaint", FXMLLoader.load(getClass().getResource( "screens/addComplaints.fxml" )));
 //        screenController.addScreen("viewUsers", FXMLLoader.load(getClass().getResource( "screens/viewUsers.fxml" )));
 //        screenController.addScreen("addUser", FXMLLoader.load(getClass().getResource( "screens/addUser.fxml" )));
         screenController.activate("login");
-    }
-
-
-    public static void main(String[] args) {
-        launch(args);
-
-        DatabaseLanguage dbLang = new SQL("root", "fys-resort5", "185.177.59.153:3306/ooad");
-        Database database = new Database(dbLang);
-
-        UserRepository userRep = new UserRepository(database);
-
-
     }
 }
