@@ -1,18 +1,21 @@
 package user;
 
+import java.util.List;
+
 public class User {
     private int id = 0;
     private String name;
-    private String password;
+    private Password password;
     private boolean isAdmin;
+    private List<Property> properties;
 
-    public User(String name, String password, boolean isAdmin) {
+    public User(String name, Password password, boolean isAdmin) {
         this.name = name;
         this.password = password;
         this.isAdmin = isAdmin;
     }
 
-    public User(int id, String name, String password, boolean isAdmin) {
+    public User(int id, String name, Password password, boolean isAdmin) {
         this.id = id;
         this.name = name;
         this.password = password;
@@ -25,5 +28,9 @@ public class User {
 
     public boolean isAdmin() {
         return isAdmin;
+    }
+
+    public void setProperties(List<Property> properties) {
+        this.properties = properties;
     }
 }

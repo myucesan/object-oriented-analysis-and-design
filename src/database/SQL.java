@@ -33,7 +33,6 @@ public class SQL implements DatabaseLanguage{
 
     @Override
     //TODO: add joins and where
-    //TODO: Test, works only in theory
     public List<List<Column>> select(String table, List<Column> columns, List<Join> joins, String where) {
         List<List<Column>> result = new ArrayList<>();
 
@@ -47,7 +46,6 @@ public class SQL implements DatabaseLanguage{
 
         try {
             Statement stmt = conn.createStatement();
-            System.out.println(sql.toString());
             ResultSet rs = stmt.executeQuery(sql.toString());
 
             while (rs.next()) {

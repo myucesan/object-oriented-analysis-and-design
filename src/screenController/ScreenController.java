@@ -1,5 +1,6 @@
 package screenController;
 
+import complaint.ComplaintRepository;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import user.UserRepository;
@@ -9,6 +10,7 @@ import java.util.HashMap;
 public class ScreenController {
 
     public UserRepository userRepository;
+    public ComplaintRepository complaintRepository;
 
     private HashMap<String, Pane> screenMap = new HashMap<>();
     private Scene main;

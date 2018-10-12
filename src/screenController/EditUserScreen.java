@@ -1,5 +1,7 @@
 package screenController;
 
+import user.User;
+
 public class EditUserScreen extends BaseScreen {
 
     public void saveUser() {
@@ -14,6 +16,10 @@ public class EditUserScreen extends BaseScreen {
         boolean isAdmin = false;
 
         // Call create user function
-        ScreenController.getInstance().userRepository.createUser(name, password, isAdmin);
+        User user = ScreenController.getInstance().userRepository.createUser(name, password, isAdmin);
+
+        // Create properties
+
+        // Add properties to user
     }
 }

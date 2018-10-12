@@ -1,3 +1,4 @@
+import complaint.ComplaintRepository;
 import database.Database;
 import database.DatabaseLanguage;
 import database.SQL;
@@ -7,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import screenController.ScreenController;
-import user.User;
 import user.UserRepository;
 
 public class Main extends Application {
@@ -40,8 +40,6 @@ public class Main extends Application {
         Database database = new Database(dbLang);
 
         screenController.userRepository = new UserRepository(database);
-        for (User user : screenController.userRepository.getUsers()) {
-            System.out.println(user.isAdmin());
-        }
+        screenController.complaintRepository = new ComplaintRepository(database);
     }
 }

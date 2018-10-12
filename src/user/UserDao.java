@@ -23,7 +23,6 @@ public class UserDao implements dao {
         columns.add(new Column("password"));
         columns.add(new Column("isAdmin"));
 
-
         List<List<Column>> result = database.select("users", columns, null, null);
 
         List<User> userList = new ArrayList<>();
@@ -31,7 +30,7 @@ public class UserDao implements dao {
             User user = new User(
                     Integer.parseInt(lc.get(0).value),
                     lc.get(1).value,
-                    lc.get(2).value,
+                    new Password(lc.get(2).value),
                     lc.get(3).value.equals("1")
             );
             userList.add(user);

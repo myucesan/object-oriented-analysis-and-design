@@ -34,7 +34,8 @@ public class UserRepository {
         //TODO: Check if user exsists
 
 
-        User user = new User(name, password, isAdmin);
+        User user = new User(name, new Password(password), isAdmin);
+        users.add(user);
 
         return user;
     }

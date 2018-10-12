@@ -26,7 +26,7 @@ public class Database {
         currentLanguage.delete(table, id);
     }
 
-    public void EnumToList(){
+    public void enumToList() {
 
     }
 
