@@ -22,4 +22,9 @@ public class EditUserScreen extends BaseScreen {
 
         // Add properties to user
     }
+
+    @Override
+    public void init() {
+
+    }
 }

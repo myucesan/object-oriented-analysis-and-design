@@ -9,4 +9,8 @@ public class LoginScreen {
     public void openRegister() {
         ScreenController.getInstance().activate("register");
     }
+
+    public void init() {
+
+    }
 }

@@ -1,27 +1,39 @@
 package screenController;
 
 import complaint.Complaint;
-import javafx.fxml.Initializable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
 
-import java.net.URL;
 import java.util.List;
-import java.util.ResourceBundle;
 
-public class ViewComplaintsScreen extends BaseScreen implements Initializable {
+public class ViewComplaintsScreen extends BaseScreen {
+
+    ObservableList observableList = FXCollections.observableArrayList();
+    @FXML
+    private ListView listView;
 
     public void editComplaint() {
 
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void init() {
         //TODO populate list with items
 
         List<Complaint> complaintList = ScreenController.getInstance().complaintRepository.getComplaints();
 
-        System.out.println("initialize");
         for (Complaint c : complaintList) {
-            System.out.println(c.getName());
+            observableList.add(c);
         }
+
+        listView.setItems(observableList);
+        listView.setOnMouseClicked(click -> {
+
+            if (click.getClickCount() == 2) {
+                Complaint currentItemSelected = (Complaint) listView.getSelectionModel().getSelectedItem();
+                ScreenController.getInstance().activate("editComplaint", currentItemSelected.getId());
+            }
+        });
     }
 }

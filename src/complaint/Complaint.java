@@ -47,6 +47,9 @@ public class Complaint {
 
     private List<History> history;
 
+    public int getId() {
+        return this.id;
+    }
     public String getName() {
         return this.name;
     }
@@ -55,4 +58,10 @@ public class Complaint {
     public enum Status {NEW, OPEN, ASSIGNED, CLOSED}
 
     public enum Category {PLUMMING, CARPENTERY, MAINSONRY, MISC}
+
+    //TODO expand options
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }

@@ -10,6 +10,15 @@
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="609.0" prefWidth="600.0" style="-fx-background-color: white;"
             xmlns="http://javafx.com/javafx/10.0.1" fx:controller="screenController.EditComplaintScreen">
+    <userData>
+        <fx:reference source="controller"/>
+    </userData>
+    <properties>
+        <!-- store controller at key "foo" in properties map -->
+        <controller>
+            <fx:reference source="controller"/>
+        </controller>
+    </properties>
     <children>
         <Line endX="501.0" layoutX="101.0" layoutY="35.0" opacity="0.3" startX="-100.0"/>
         <Text fill="#5e5e5e" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0"

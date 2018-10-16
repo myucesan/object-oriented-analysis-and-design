@@ -107,7 +107,7 @@ public class SQL implements DatabaseLanguage{
         sql += sqlColumns;
         sql += ") VALUES (";
         sql += sqlValues;
-        sql += "')";
+        sql += ")";
 
         try {
             Statement stmt = conn.createStatement();

@@ -1,6 +1,6 @@
 package screenController;
 
-public class BaseScreen {
+public abstract class BaseScreen {
 
     public void openComplaints() {
         ScreenController.getInstance().activate("viewComplaints");
@@ -17,4 +17,8 @@ public class BaseScreen {
     public void openNewUser() {
         ScreenController.getInstance().activate("addUser");
     }
+
+    public int idToOpen;
+
+    public abstract void init();
 }
