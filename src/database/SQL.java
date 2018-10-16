@@ -7,6 +7,7 @@ import java.util.List;
 public class SQL implements DatabaseLanguage{
 
     private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    private static final boolean USE_SSL = false;
     private String dbName;
     private String dbPass;
     private String dbHost;
@@ -17,8 +18,11 @@ public class SQL implements DatabaseLanguage{
         this.dbPass = dbPass;
         this.dbHost = "jdbc:mysql://" + dbHost;
 
+        if (!USE_SSL) {
+            this.dbHost += "?useSSL=false";
+        }
+
         try {
-//            Class.forName("com.mysql.jdbc.Driver");
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             System.out.println("Driver: com.mysql.jdbc.Driver not found");
