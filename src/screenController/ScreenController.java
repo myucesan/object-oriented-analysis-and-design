@@ -1,6 +1,7 @@
 package screenController;
 
 import complaint.ComplaintRepository;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import user.UserRepository;
@@ -24,7 +25,6 @@ public class ScreenController {
     }
 
     public static ScreenController getInstance(){
-
         return instance;
     }
 
@@ -37,6 +37,11 @@ public class ScreenController {
     }
 
     public void activate(String name){
-        main.setRoot( screenMap.get(name) );
+        Parent parent = screenMap.get(name);
+        if (parent != null) {
+            main.setRoot(parent);
+        } else {
+            System.out.println("pageNotFound");
+        }
     }
 }

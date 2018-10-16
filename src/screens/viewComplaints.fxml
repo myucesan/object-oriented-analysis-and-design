@@ -1,15 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="screenController.ViewComplaintsScreen">
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="457.0" prefWidth="600.0" style="-fx-background-color: white;"
+            xmlns="http://javafx.com/javafx/10.0.1" fx:controller="screenController.ViewComplaintsScreen">
    <children>
-      <Text layoutX="234.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Complaints">
+      <Line endX="501.0" layoutX="101.0" layoutY="35.0" opacity="0.3" startX="-100.0"/>
+      <Text fill="#5e5e5e" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="View complaints">
          <font>
-            <Font size="25.0" />
-         </font></Text>
-      <ListView layoutX="38.0" layoutY="75.0" prefHeight="298.0" prefWidth="524.0" />
+            <Font name="Helvetica" size="17.0"/>
+         </font>
+      </Text>
+      <Circle fill="WHITE" layoutX="520.0" layoutY="20.0" radius="10.0" stroke="#5e5e5e" strokeType="INSIDE"/>
+      <Circle fill="WHITE" layoutX="550.0" layoutY="20.0" radius="10.0" stroke="#5e5e5e" strokeType="INSIDE"/>
+      <Circle fill="WHITE" layoutX="580.0" layoutY="20.0" radius="10.0" stroke="#06a7f8" strokeType="INSIDE"/>
+      <Button fx:id="viewComplaintsBtn" onAction="#openComplaints" layoutX="43.0" layoutY="56.0" mnemonicParsing="false"
+              prefHeight="40.0" prefWidth="125.0"
+              style="-fx-background-color: #06a7f8#06a7f8 #06a7f8#06a7f8 #06a7f8#06a7f8 #06a7f8#06a7f8 #06a7f8#06a7f8 #06a7f8#06a7f8 #06a7f8#06a7f8 #06a7f8#06a7f8; -fx-border-color: #06a7f8#06a7f8; -fx-border-radius: 5px 0px 0px 5px;"
+              text="View complaints" textFill="WHITE"/>
+      <Button fx:id="newComplaintBtn" onAction="#openNewComplaint" layoutX="168.0" layoutY="56.0"
+              mnemonicParsing="false" prefHeight="40.0" prefWidth="125.0"
+              style="-fx-background-color: WHITE; -fx-border-color: #06a7f8#06a7f8; -fx-border-radius: 0px 0px 0px 0px;"
+              text="New complaint"/>
+      <Button fx:id="viewUsersBtn" onAction="#openUsers" layoutX="293.0" layoutY="56.0" mnemonicParsing="false"
+              prefHeight="40.0" prefWidth="125.0"
+              style="-fx-background-color: white; -fx-border-color: #06a7f8#06a7f8; -fx-border-radius: 0px 0px 0px 0px;"
+              text="View Users"/>
+      <Button fx:id="newUserBtn" onAction="#openNewUser" layoutX="418.0" layoutY="56.0" mnemonicParsing="false"
+              prefHeight="40.0" prefWidth="125.0"
+              style="-fx-background-color: white; -fx-border-color: #06a7f8#06a7f8; -fx-border-radius: 0px 5px 5px 0px;"
+              text="New user"/>
+      <Text fx:id="breadCrumb" fill="#5e5e5e" layoutX="43.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0"
+            text="View complaints" wrappingWidth="341.2060546875">
+         <font>
+            <Font name="Helvetica" size="13.0"/>
+         </font>
+      </Text>
+      <ListView layoutX="31.0" layoutY="141.0" prefHeight="265.0" prefWidth="522.0"/>
    </children>
-</Pane>
+</AnchorPane>

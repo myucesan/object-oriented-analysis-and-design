@@ -22,7 +22,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Pane root = FXMLLoader.load(getClass().getResource( "screens/login.fxml" ));
-        Scene scene = new Scene(root, 500, 275);
+        Scene scene = new Scene(root, 600, 450);
         primaryStage.setTitle("ComplaintsApp");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -31,7 +31,8 @@ public class Main extends Application {
         screenController.addScreen("login", root);
 //        screenController.addScreen("register", FXMLLoader.load(getClass().getResource( "screens/register.fxml" )));
         screenController.addScreen("viewComplaints", FXMLLoader.load(getClass().getResource( "screens/viewComplaints.fxml" )));
-//        screenController.addScreen("editComplaint", FXMLLoader.load(getClass().getResource( "screens/addComplaints.fxml" )));
+        screenController.addScreen("editComplaint", FXMLLoader.load(getClass().getResource("screens/NewComplaint.fxml")));
+        screenController.addScreen("viewComplaint", FXMLLoader.load(getClass().getResource("screens/ViewSpecificComplaint.fxml")));
 //        screenController.addScreen("viewUsers", FXMLLoader.load(getClass().getResource( "screens/viewUsers.fxml" )));
 //        screenController.addScreen("addUser", FXMLLoader.load(getClass().getResource( "screens/addUser.fxml" )));
         screenController.activate("login");

@@ -18,7 +18,8 @@ public class SQL implements DatabaseLanguage{
         this.dbHost = "jdbc:mysql://" + dbHost;
 
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+//            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             System.out.println("Driver: com.mysql.jdbc.Driver not found");
             e.printStackTrace();

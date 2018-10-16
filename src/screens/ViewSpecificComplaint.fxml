@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="609.0" prefWidth="600.0" style="-fx-background-color: white;"
+            xmlns="http://javafx.com/javafx/10.0.1" fx:controller="screenController.EditComplaintScreen">
+    <children>
+        <Line endX="501.0" layoutX="101.0" layoutY="35.0" opacity="0.3" startX="-100.0"/>
+        <Text fill="#5e5e5e" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="View Specific Complaint">
+            <font>
+                <Font name="Helvetica" size="17.0"/>
+            </font>
+        </Text>
+        <Circle fill="WHITE" layoutX="520.0" layoutY="20.0" radius="10.0" stroke="#5e5e5e" strokeType="INSIDE"/>
+        <Circle fill="WHITE" layoutX="550.0" layoutY="20.0" radius="10.0" stroke="#5e5e5e" strokeType="INSIDE"/>
+        <Circle fill="WHITE" layoutX="580.0" layoutY="20.0" radius="10.0" stroke="#06a7f8" strokeType="INSIDE"/>
+        <Button fx:id="viewComplaintsBtn" onAction="#openComplaints" layoutX="43.0" layoutY="56.0"
+                mnemonicParsing="false" prefHeight="40.0" prefWidth="125.0"
+                style="-fx-background-color: #06a7f8#06a7f8 #06a7f8#06a7f8 #06a7f8#06a7f8 #06a7f8#06a7f8; -fx-border-color: #06a7f8#06a7f8; -fx-border-radius: 5px 0px 0px 5px;"
+                text="View complaints" textFill="WHITE"/>
+        <Button fx:id="newComplaintBtn" onAction="#openNewComplaint" layoutX="168.0" layoutY="56.0"
+                mnemonicParsing="false" prefHeight="40.0" prefWidth="125.0"
+                style="-fx-background-color: white; -fx-border-color: #06a7f8#06a7f8; -fx-border-radius: 0px 0px 0px 0px;"
+                text="New complaint"/>
+        <Button fx:id="viewUsersBtn" onAction="#openUsers" layoutX="293.0" layoutY="56.0" mnemonicParsing="false"
+                prefHeight="40.0" prefWidth="125.0"
+                style="-fx-background-color: white; -fx-border-color: #06a7f8#06a7f8; -fx-border-radius: 0px 0px 0px 0px;"
+                text="View Users"/>
+        <Button fx:id="newUserBtn" onAction="#openNewUser" layoutX="418.0" layoutY="56.0" mnemonicParsing="false"
+                prefHeight="40.0" prefWidth="125.0"
+                style="-fx-background-color: white; -fx-border-color: #06a7f8#06a7f8; -fx-border-radius: 0px 5px 5px 0px;"
+                text="New user"/>
+        <Text fx:id="breadcrumb" fill="#5e5e5e" layoutX="43.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="View Complaints / Mustafa Yucesan / Leakage Roof" wrappingWidth="341.2060546875">
+            <font>
+                <Font name="Helvetica" size="13.0"/>
+            </font>
+        </Text>
+        <Text fill="#5e5e5e" layoutX="28.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title"
+              wrappingWidth="47.2060546875">
+            <font>
+                <Font name="Helvetica" size="16.0"/>
+            </font>
+        </Text>
+        <TextField fx:id="titleTf" layoutX="76.0" layoutY="140.0" style="-fx-border-radius: 0px;"/>
+        <Text fill="#5e5e5e" layoutX="2.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description"
+              wrappingWidth="81.2060546875">
+            <font>
+                <Font name="Helvetica" size="14.0"/>
+            </font>
+        </Text>
+        <TextArea fx:id="descriptionTa" layoutX="75.0" layoutY="178.0" prefHeight="100.0" prefWidth="167.0"/>
+        <Text fill="#5e5e5e" layoutX="250.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Concerning property:" wrappingWidth="167.00000351294875">
+            <font>
+                <Font name="Helvetica" size="16.0"/>
+            </font>
+        </Text>
+        <Text fill="#5e5e5e" layoutX="250.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Category of complaint:" wrappingWidth="167.00000351294875">
+            <font>
+                <Font name="Helvetica" size="16.0"/>
+            </font>
+        </Text>
+        <ComboBox fx:id="propertyCb" layoutX="417.0" layoutY="138.0" opacity="0.4" prefWidth="150.0"
+                  style="-fx-background-color: white; -fx-border-color: #5e5e5e#5e5e5e;"/>
+        <ComboBox fx:id="categoryCb" layoutX="417.0" layoutY="186.0" opacity="0.4" prefWidth="150.0"
+                  style="-fx-background-color: white; -fx-border-color: #5e5e5e#5e5e5e;"/>
+        <Text fill="#5e5e5e" layoutX="250.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pictures"
+              wrappingWidth="167.00000351294875">
+            <font>
+                <Font name="Helvetica" size="16.0"/>
+            </font>
+        </Text>
+        <ImageView fx:id="imgView" fitHeight="75.0" fitWidth="205.0" layoutX="356.0" layoutY="228.0" pickOnBounds="true"
+                   preserveRatio="true"/>
+        <Button fx:id="adjustComplaintBtn" layoutX="125.0" layoutY="303.0" mnemonicParsing="false" prefHeight="40.0"
+                prefWidth="125.0"
+                style="-fx-background-color: #06a7f8#06a7f8 #06a7f8#06a7f8; -fx-border-color: #06a7f8#06a7f8; -fx-border-radius: 5px;"
+                text="Adjust Complaint" textFill="WHITE">
+            <font>
+                <Font name="System Bold Italic" size="13.0"/>
+            </font>
+        </Button>
+        <Button fx:id="deleteComplaintBtn" layoutX="322.0" layoutY="303.0" mnemonicParsing="false" prefHeight="40.0"
+                prefWidth="125.0"
+                style="-fx-background-color: #06a7f8#06a7f8 #06a7f8#06a7f8; -fx-border-color: #06a7f8#06a7f8; -fx-border-radius: 5px;"
+                text="Delete complaint" textFill="WHITE">
+            <font>
+                <Font name="System Bold Italic" size="13.0"/>
+            </font>
+        </Button>
+        <Text fill="#5e5e5e" layoutX="164.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status"
+              wrappingWidth="47.2060546875">
+            <font>
+                <Font name="Helvetica" size="16.0"/>
+            </font>
+        </Text>
+        <ComboBox fx:id="statusCb" layoutX="252.0" layoutY="365.0" opacity="0.4" prefHeight="29.0" prefWidth="167.0"
+                  style="-fx-background-color: white; -fx-border-color: #5e5e5e#5e5e5e;"/>
+        <Text fill="#5e5e5e" layoutX="155.0" layoutY="430.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comment"
+              wrappingWidth="81.20605707168579">
+            <font>
+                <Font name="Helvetica" size="16.0"/>
+            </font>
+        </Text>
+        <TextArea fx:id="descriptionTa1" layoutX="250.0" layoutY="414.0" prefHeight="100.0" prefWidth="167.0"/>
+        <Button fx:id="processComplaintBtn" layoutX="217.0" layoutY="530.0" mnemonicParsing="false" prefHeight="40.0"
+                prefWidth="167.0"
+                style="-fx-background-color: #06a7f8#06a7f8 #06a7f8#06a7f8; -fx-border-color: #06a7f8#06a7f8; -fx-border-radius: 5px;"
+                text="Process Complaint" textFill="WHITE">
+            <font>
+                <Font name="System Bold Italic" size="13.0"/>
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

@@ -7,7 +7,7 @@ public class BaseScreen {
     }
 
     public void openNewComplaint() {
-        ScreenController.getInstance().activate("addComplaint");
+        ScreenController.getInstance().activate("editComplaint");
     }
 
     public void openUsers() {
