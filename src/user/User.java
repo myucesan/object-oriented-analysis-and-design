@@ -26,6 +26,10 @@ public class User {
         return this.name;
     }
 
+    public int getId() {
+        return this.id;
+    }
+
     public boolean isAdmin() {
         return isAdmin;
     }

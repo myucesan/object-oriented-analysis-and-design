@@ -13,4 +13,9 @@ public class Column {
     public Column(String name) {
         this(name, null);
     }
+
+    public Column(String name, int value) {
+        this.name = name;
+        this.value = Integer.toString(value);
+    }
 }

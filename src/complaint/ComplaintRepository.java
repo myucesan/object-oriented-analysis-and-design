@@ -18,7 +18,11 @@ public class ComplaintRepository {
     }
 
     public List<Complaint> getComplaints() {
-        if (complaintList == null) {
+        return getComplaints(false);
+    }
+
+    private List<Complaint> getComplaints(boolean force) {
+        if (complaintList == null || force) {
             complaintList = dao.getComplaints();
         }
         return complaintList;
@@ -30,15 +34,13 @@ public class ComplaintRepository {
 
     public Complaint createComplaint(String name, String description, Property property, Complaint.Category category, List<Image> imageList, User customer) {
 
-        if (complaintList == null) {
-            getComplaints();
-        }
-
         //TODO: Check if user exsists
 
 
         Complaint complaint = new Complaint(name, description, property, category, imageList, customer);
-        complaintList.add(complaint);
+        complaint.serialize(dao);
+
+        getComplaints(true);
 
         return complaint;
     }

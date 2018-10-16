@@ -1,9 +1,11 @@
 package complaint;
 
 import common.Image;
+import database.Column;
 import user.Property;
 import user.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Complaint {
@@ -45,13 +47,38 @@ public class Complaint {
     private User customer;
     private User assignee;
 
-    private List<History> history;
+    private List<History> history = new ArrayList<>();
 
     public int getId() {
         return this.id;
     }
     public String getName() {
         return this.name;
+    }
+
+    // TODO refactor out of complaint
+    public void serialize(ComplaintDao dao) {
+        System.out.println("serialize");
+        if (id == 0) {
+            List<Column> columns = new ArrayList<Column>();
+            Column c = new Column("name", this.name);
+            columns.add(c);
+            c = new Column("description", this.description);
+            columns.add(c);
+            c = new Column("property_id", this.property.getId());
+            columns.add(c);
+            c = new Column("category", this.category.toString());
+            columns.add(c);
+            c = new Column("status", this.status.toString());
+            columns.add(c);
+            c = new Column("customer_id", 2);
+            columns.add(c);
+            c = new Column("assignee_id", 3);
+            columns.add(c);
+            dao.database.insert("complaints", columns);
+        } else {
+            //TODO Write update
+        }
     }
 
     //TODO use single point of definition and move these to the database (class)

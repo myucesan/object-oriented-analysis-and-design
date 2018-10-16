@@ -21,12 +21,12 @@ public class EditComplaintScreen extends BaseScreen {
     private ComboBox categoryCb;
 
     public void createComplaint() {
-
+        User user = ScreenController.getInstance().userRepository.getUserById(2);
+        ScreenController.getInstance().complaintRepository.createComplaint(titleTf.getText(), descriptionTa.getText(), new Property(), (Complaint.Category) categoryCb.getValue(), null, user);
     }
 
     public void saveComplaint() {
-        User user = ScreenController.getInstance().userRepository.getUserById(2);
-        ScreenController.getInstance().complaintRepository.createComplaint(titleTf.getText(), descriptionTa.getText(), new Property(), (Complaint.Category) categoryCb.getValue(), null, user);
+
     }
 
     @Override

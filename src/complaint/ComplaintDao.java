@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ComplaintDao implements dao {
 
-    Database database;
+    public Database database;
 
     public ComplaintDao(Database database) {
         this.database = database;
