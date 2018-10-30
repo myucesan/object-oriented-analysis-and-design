@@ -44,4 +44,17 @@ public class ComplaintRepository {
 
         return complaint;
     }
+    
+        public Complaint updateComplaint(String name, String description, Property property, Complaint.Category category, List<Image> imageList, User customer) {
+
+        //TODO: Check if user exsists
+
+
+        Complaint complaint = new Complaint(name, description, property, category, imageList, customer);
+        complaint.serialize(dao);
+
+        getComplaints(true);
+
+        return complaint;
+    }
 }
